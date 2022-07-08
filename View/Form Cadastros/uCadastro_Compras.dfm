@@ -6,6 +6,7 @@ inherited form_cadastro_compras: Tform_cadastro_compras
   TextHeight = 13
   inherited pnl_fundo: TPanel
     Height = 700
+    ExplicitHeight = 700
     inherited ScrollBox1: TScrollBox
       Height = 700
       ExplicitHeight = 700
@@ -258,6 +259,7 @@ inherited form_cadastro_compras: Tform_cadastro_compras
       end
       inherited pnl_bottom: TPanel
         Top = 645
+        ExplicitTop = 645
       end
       object data_emissao_nota: TDateTimePicker
         Left = 592
@@ -560,7 +562,7 @@ inherited form_cadastro_compras: Tform_cadastro_compras
         MudarCor = clCream
       end
       object edt_valor_total: PriTEdit
-        Left = 320
+        Left = 568
         Top = 264
         Width = 80
         Height = 24
