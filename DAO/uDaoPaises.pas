@@ -14,6 +14,9 @@ type daoPaises = class( DAO )
     function salvar ( pObj : TObject ) : string;      override;
     function excluir ( pObj : TObject ) : string;     override;
     function carregar ( pObj : TObject ) : string;    override;
+
+    function VerificaExiste(aChave:string) : Boolean; override;
+    function ValidaExclusao(pObj : TObject):Boolean; override;
 end;
 
 implementation
@@ -28,6 +31,7 @@ begin
   mPais.setCodigo( aDM.QPaises.FieldByName('CODPAIS').AsInteger );
   mPais.setPais( aDM.QPaises.FieldByName('PAIS').AsString );
   mPais.setDDI( aDM.QPaises.FieldByName('DDI').AsString );
+  mPais.setMoeda(aDM.QPaises.FieldByName('MOEDA').AsString);
   mPais.setSigla( aDM.QPaises.FieldByName('SIGLA').AsString );
   mPais.setDataCad( aDM.QPaises.FieldByName('DATACAD').AsDateTime );
   mPais.setUltAlt( aDM.QPaises.FieldByName('ULTALT').AsDateTime );
@@ -40,8 +44,20 @@ begin
 end;
 
 function daoPaises.excluir(pObj: TObject): string;
+var
+  mPais : Paises;
 begin
-
+  aDM.Transacao.StartTransaction;
+  try
+    mPais := Paises(pObj);
+    aDM.QPaises.Locate('CODPAIS', mPais.getCodigo, []);
+    aDM.QPaises.Delete;
+    aDM.Transacao.Commit;
+    Result := 'Excluido com sucesso!';
+  except
+    aDM.Transacao.Rollback;
+    Result := '';
+  end;
 end;
 
 function daoPaises.getDS: TObject;
@@ -95,6 +111,7 @@ function daoPaises.salvar(pObj: TObject): string;
 var mPais : Paises;
 begin
   mPais:= Paises( pObj );
+
   aDM.Transacao.StartTransaction;
   try
     if mPais.getCodigo = 0 then
@@ -125,10 +142,24 @@ begin
     aDM.QPaises.Post;
 
     aDM.Transacao.Commit;
-
+    Result := 'Salvo com sucesso!';
   except
+    Result := '';
     aDM.Transacao.Rollback;
   end;
+end;
+
+function daoPaises.ValidaExclusao(pObj: TObject): Boolean;
+var
+  mPais : Paises;
+begin
+  mPais := Paises(pObj);
+  Result := not(aDM.QEstados.Locate('CODPAIS', mPais.getCodigo, []))//busca na query estado se existe algum codPAis igual ao informado
+end;
+
+function daoPaises.VerificaExiste(aChave: string): Boolean;
+begin
+  Result := aDM.QPaises.Locate('PAIS', aChave, []);//busca na query se existe algum registro com o mesmo valor
 end;
 
 end.
