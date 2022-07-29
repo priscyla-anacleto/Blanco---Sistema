@@ -43,7 +43,7 @@ type
     lbl_desconto: TLabel;
     lbl_valor_unitario: TLabel;
     lbl_quantidade: TLabel;
-    ListView1: TListView;
+    list_view_produtos: TListView;
     pbl_limpar_grid: TPanel;
     btn_limpar_grid: TSpeedButton;
     pnl_remover_item: TPanel;
@@ -53,6 +53,23 @@ type
     pnl_adicionar_contato: TPanel;
     btn_adicionar_contato: TSpeedButton;
     GroupBox1: TGroupBox;
+    lbl_titulo_total: TLabel;
+    edt_total_quantidade: PriTEdit;
+    edt_total_desconto: PriTEdit;
+    edt_total_valor_total: PriTEdit;
+    lbl_total_quantidade: TLabel;
+    lbl_total_desconto: TLabel;
+    lbl_total_valor_total: TLabel;
+    lbl_titulo_financeiro: TLabel;
+    pnl_btn_condicao_pagamento: TPanel;
+    btn_botão_pesquisar_condicao_pagamento: TSpeedButton;
+    PriTEdit1: PriTEdit;
+    edt_condigo_condicao_pagamento: PriTEdit;
+    lbl_codigo_condicao_pagamento: TLabel;
+    edt_condicao_pagamento: TLabel;
+    lbl_titulo_parcelas: TLabel;
+    ListView_condicao_pagamento: TListView;
+    lbl_titulo_contas_pagar: TLabel;
 
     procedure btn_limpar_gridClick(Sender: TObject);
 
@@ -131,7 +148,7 @@ end;
 procedure Tform_cadastro_compras.btn_limpar_gridClick(Sender: TObject);
 begin
   inherited;
-  ListView1.Clear;
+  list_view_produtos.Clear;
 end;
 
 procedure Tform_cadastro_compras.btn_adicionar_contatoMouseEnter(

@@ -5,8 +5,8 @@ object DM: TDM
   object Conexao: TFDConnection
     Params.Strings = (
       
-        'Database=D:\Desenvolvimento\Projeto\Blanco---Sistema\bd\BD-SISTEM' +
-        'A-BLANCO.FDB'
+        'Database=D:\Desenvolvimento\Projeto\Blanco---Sistema\bd\BD-SISTE' +
+        'MA-BLANCO.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Server=localhost'
@@ -1093,10 +1093,9 @@ object DM: TDM
     Top = 256
   end
   object QClientes: TFDQuery
-    Active = True
     Connection = Conexao
     SQL.Strings = (
-      'select * from clientes')
+      'delete from clientes')
     Left = 584
     Top = 256
     object QClientesCODCLIENTE: TIntegerField

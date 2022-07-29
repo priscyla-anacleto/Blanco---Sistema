@@ -16,6 +16,9 @@ type Ctrl = class
     function salvar ( pObj : TObject ) : string;      virtual;
     function excluir ( pObj : TObject ) : string;     virtual;
     function carregar ( pObj : TObject ) : string;    virtual;
+
+    function VerificaExiste(aChave:string):Boolean;   virtual;
+    function ValidaExclusao(pObj : TObject):Boolean; virtual;
 end;
 
 implementation
@@ -58,6 +61,16 @@ begin
 end;
 
 procedure Ctrl.setDM(pDM: TObject);
+begin
+
+end;
+
+function Ctrl.ValidaExclusao(pObj: TObject): Boolean;
+begin
+
+end;
+
+function Ctrl.VerificaExiste(aChave: string): Boolean;
 begin
 
 end;

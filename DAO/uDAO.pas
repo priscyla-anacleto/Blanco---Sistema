@@ -17,6 +17,8 @@ type DAO = class
     function salvar ( pObj : TObject ) : string;      virtual;
     function excluir ( pObj : TObject ) : string;     virtual;
     function carregar ( pObj : TObject ) : string;    virtual;
+    function VerificaExiste(aChave:string):Boolean;   virtual;
+    function ValidaExclusao(pObj : TObject):Boolean; virtual;
 end;
 
 implementation
@@ -61,6 +63,16 @@ end;
 procedure DAO.setDM(pDM: TObject);
 begin
   aDM:= TDM( pDM );
+end;
+
+function DAO.ValidaExclusao(pObj: TObject): Boolean;
+begin
+
+end;
+
+function DAO.VerificaExiste(aChave: string): Boolean;
+begin
+
 end;
 
 end.

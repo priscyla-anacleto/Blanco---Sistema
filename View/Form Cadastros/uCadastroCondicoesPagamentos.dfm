@@ -456,10 +456,10 @@ inherited form_cadastro_condicao_pagamento: Tform_cadastro_condicao_pagamento
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
-        MaxLength = 3
-        NumbersOnly = True
+        MaxLength = 6
         ParentFont = False
         TabOrder = 7
+        OnKeyPress = edt_porcentagemKeyPress
         MudarCor = clCream
       end
       object pbl_limpar_grid: TPanel

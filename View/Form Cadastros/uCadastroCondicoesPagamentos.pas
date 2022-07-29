@@ -57,6 +57,7 @@ type
       Item: TListItem; Selected: Boolean);
     procedure btn_botao_alterar_itemClick(Sender: TObject);
     procedure btn_pesquisaClick(Sender: TObject);
+    procedure edt_porcentagemKeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -117,7 +118,7 @@ begin
 
       edt_num_parcelas.Text:= IntToStr( StrToInt ( edt_num_parcelas.Text) + 1 );
 
-     lbl_total_porc.Caption:= IntToStr (strtoint (lbl_total_porc.Caption) + strtoint (edt_porcentagem.Text));
+     lbl_total_porc.Caption:= FloatToStr (StrToFloat (lbl_total_porc.Caption) + StrToFloat (edt_porcentagem.Text));
     end;
   end
   else
@@ -134,7 +135,7 @@ begin
     
     edt_num_parcelas.Text:= IntToStr( StrToInt ( edt_num_parcelas.Text) + 1 );
 
-    lbl_total_porc.Caption:= IntToStr (strtoint (lbl_total_porc.Caption) + strtoint (edt_porcentagem.Text));
+    lbl_total_porc.Caption:= FloatToStr (StrToFloat (lbl_total_porc.Caption) + StrToFloat (edt_porcentagem.Text));
   end;
 
 end;
@@ -220,6 +221,14 @@ begin
   self.edt_juros.Enabled:= True;
   self.edt_multa.Enabled:= True;
   self.edt_cod_forma.Enabled:= True;
+end;
+
+procedure Tform_cadastro_condicao_pagamento.edt_porcentagemKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if not (key in ['0'..'9',',',#8]) then
+    key :=#0;
 end;
 
 procedure Tform_cadastro_condicao_pagamento.FormShow(Sender: TObject);
@@ -347,14 +356,14 @@ begin
     Exit;
   end;
 
-  if ( StrToInt ( self.edt_porcentagem.Text ) ) > 100 then
+  if ( StrToFloat ( self.edt_porcentagem.Text ) ) > 100 then
   begin
     MessageDlg( 'A porcentagem não pode ultrapassar 100%!', MtInformation, [ MbOK ], 0 );
     edt_porcentagem.SetFocus;
     Exit;
   end;
 
-  if ( StrToInt ( self.lbl_total_porc.Caption ) ) = 100 then
+  if ( StrToFloat ( self.lbl_total_porc.Caption ) ) = 100 then
   begin
     MessageDlg( 'O total da porcentagem não pode ultrapassar de 100%!', MtInformation, [ MbOK ], 0 );
     edt_porcentagem.SetFocus;
@@ -368,6 +377,13 @@ begin
     Exit;
   end;
 
+  if ( StrToFloat ( self.lbl_total_porc.Caption ) ) +  ( StrToFloat ( self.edt_porcentagem.Text ) ) > 100 then
+  begin
+    MessageDlg( 'O total da porcentagem não pode ultrapassar de 100%!', MtInformation, [ MbOK ], 0 );
+    edt_porcentagem.SetFocus;
+    Exit;
+  end;
+
  Result:= true;
 end;
 
@@ -376,7 +392,7 @@ procedure Tform_cadastro_condicao_pagamento.btn_remover_itemClick(
 begin
   if ListView_condicao_pagamento.ItemFocused.Index = ListView_condicao_pagamento.Items.Count - 1 then
   begin
-    lbl_total_porc.Caption:= IntToStr( StrToInt ( lbl_total_porc.Caption ) - StrToInt ( ListView_condicao_pagamento.ItemFocused.SubItems[1] ) );
+    lbl_total_porc.Caption:= FloatToStr( StrToFloat ( lbl_total_porc.Caption ) - StrToFloat ( ListView_condicao_pagamento.ItemFocused.SubItems[1] ) );
     ListView_condicao_pagamento.DeleteSelected;
     edt_num_parcelas.Text:= IntToStr( StrToInt ( edt_num_parcelas.Text ) - 1 );
   end

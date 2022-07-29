@@ -1,30 +1,30 @@
-inherited form_cadastro_compras: Tform_cadastro_compras
+﻿inherited form_cadastro_compras: Tform_cadastro_compras
   Caption = 'Cadastro de Compras'
-  ClientHeight = 700
-  ExplicitHeight = 739
+  ClientHeight = 991
+  ExplicitHeight = 1030
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnl_fundo: TPanel
-    Height = 700
+    Height = 991
     ExplicitHeight = 700
     inherited ScrollBox1: TScrollBox
-      Height = 700
-      ExplicitHeight = 700
+      Height = 991
+      ExplicitHeight = 991
       inherited lbl_cod_usuario: TLabel
-        Top = 605
-        ExplicitTop = 605
+        Top = 1149
+        ExplicitTop = 1057
       end
       inherited lbl_codigo: TLabel
         Top = 42
         ExplicitTop = 42
       end
       inherited lbl_data_cadastro: TLabel
-        Top = 605
-        ExplicitTop = 605
+        Top = 1149
+        ExplicitTop = 1057
       end
       inherited lbl_data_ult_alt: TLabel
-        Top = 605
-        ExplicitTop = 605
+        Top = 1149
+        ExplicitTop = 1057
       end
       object lbl_titulo_dados_gerais: TLabel [4]
         Left = 16
@@ -159,9 +159,9 @@ inherited form_cadastro_compras: Tform_cadastro_compras
       object lbl_produto: TLabel [14]
         Left = 112
         Top = 182
-        Width = 44
+        Width = 56
         Height = 16
-        Caption = 'Produto'
+        Caption = 'Produto *'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -172,9 +172,9 @@ inherited form_cadastro_compras: Tform_cadastro_compras
       object lbl_unidade_medida: TLabel [15]
         Left = 592
         Top = 182
-        Width = 109
+        Width = 121
         Height = 16
-        Caption = 'Unidade de Medida'
+        Caption = 'Unidade de Medida *'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -234,7 +234,124 @@ inherited form_cadastro_compras: Tform_cadastro_compras
         Font.Style = []
         ParentFont = False
       end
-      object GroupBox1: TGroupBox [20]
+      object lbl_titulo_total: TLabel [20]
+        Left = 16
+        Top = 553
+        Width = 49
+        Height = 18
+        Caption = 'TOTAL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbl_total_quantidade: TLabel [21]
+        Left = 8
+        Top = 585
+        Width = 65
+        Height = 16
+        Caption = 'Quantidade'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl_total_desconto: TLabel [22]
+        Left = 112
+        Top = 585
+        Width = 52
+        Height = 16
+        Caption = 'Desconto'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl_total_valor_total: TLabel [23]
+        Left = 216
+        Top = 585
+        Width = 63
+        Height = 16
+        Caption = 'Valor Total'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl_titulo_financeiro: TLabel [24]
+        Left = 16
+        Top = 649
+        Width = 99
+        Height = 18
+        Caption = 'FINANCEIRO'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbl_codigo_condicao_pagamento: TLabel [25]
+        Left = 8
+        Top = 673
+        Width = 39
+        Height = 16
+        Caption = 'C'#243'digo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edt_condicao_pagamento: TLabel [26]
+        Left = 112
+        Top = 673
+        Width = 156
+        Height = 16
+        Caption = 'Condi'#231#245'es de Pagamento *'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl_titulo_parcelas: TLabel [27]
+        Left = 16
+        Top = 737
+        Width = 65
+        Height = 18
+        Caption = 'Parcelas'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbl_titulo_contas_pagar: TLabel [28]
+        Left = 16
+        Top = 993
+        Width = 133
+        Height = 18
+        Caption = 'CONTAS A PAGAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object GroupBox1: TGroupBox [29]
         Left = 4
         Top = 177
         Width = 819
@@ -242,24 +359,34 @@ inherited form_cadastro_compras: Tform_cadastro_compras
         TabOrder = 26
       end
       inherited edt_cod_usuario: PriTEdit
-        Top = 620
-        ExplicitTop = 620
+        Top = 1164
+        ExplicitTop = 1164
       end
       inherited edt_codigo: PriTEdit
         Top = 61
         ExplicitTop = 61
       end
       inherited edt_data_cadastro: PriTEdit
-        Top = 620
-        ExplicitTop = 620
+        Top = 1164
+        ExplicitTop = 1164
       end
       inherited edt_data_ult_alt: PriTEdit
-        Top = 620
-        ExplicitTop = 620
+        Top = 1164
+        ExplicitTop = 1164
       end
       inherited pnl_bottom: TPanel
-        Top = 645
-        ExplicitTop = 645
+        Top = 1188
+        Width = 841
+        ExplicitTop = 1188
+        ExplicitWidth = 841
+        inherited pnl_botao_salvar: TPanel
+          Left = 505
+          ExplicitLeft = 505
+        end
+        inherited pnl_botao_cancelar: TPanel
+          Left = 673
+          ExplicitLeft = 673
+        end
       end
       object data_emissao_nota: TDateTimePicker
         Left = 592
@@ -576,13 +703,47 @@ inherited form_cadastro_compras: Tform_cadastro_compras
         TabOrder = 20
         MudarCor = clCream
       end
-      object ListView1: TListView
-        Left = 8
+      object list_view_produtos: TListView
+        Left = 3
         Top = 374
-        Width = 815
+        Width = 820
         Height = 162
-        Columns = <>
+        Columns = <
+          item
+            Caption = 'Produto'
+            Width = 320
+          end
+          item
+            Caption = 'Unidade de Medida'
+            Width = 110
+          end
+          item
+            Caption = 'Quantidade'
+            Width = 80
+          end
+          item
+            Caption = 'Valor Unit'#225'rio'
+            Width = 100
+          end
+          item
+            Caption = 'Desconto'
+            Width = 100
+          end
+          item
+            Caption = 'Valor Total'
+            Width = 105
+          end>
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ReadOnly = True
+        RowSelect = True
+        ParentFont = False
         TabOrder = 21
+        TabStop = False
+        ViewStyle = vsReport
       end
       object pbl_limpar_grid: TPanel
         Left = 723
@@ -722,6 +883,180 @@ inherited form_cadastro_compras: Tform_cadastro_compras
           OnMouseLeave = btn_adicionar_contatoMouseLeave
           ExplicitTop = -8
         end
+      end
+      object edt_total_quantidade: PriTEdit
+        Left = 10
+        Top = 608
+        Width = 80
+        Height = 24
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 27
+        MudarCor = clCream
+      end
+      object edt_total_desconto: PriTEdit
+        Left = 112
+        Top = 608
+        Width = 80
+        Height = 24
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 28
+        MudarCor = clCream
+      end
+      object edt_total_valor_total: PriTEdit
+        Left = 216
+        Top = 608
+        Width = 80
+        Height = 24
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 29
+        MudarCor = clCream
+      end
+      object pnl_btn_condicao_pagamento: TPanel
+        Left = 514
+        Top = 697
+        Width = 35
+        Height = 22
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 30
+        object btn_botão_pesquisar_condicao_pagamento: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 35
+          Height = 22
+          Cursor = crHandPoint
+          Align = alClient
+          Flat = True
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFA2A2A21D1D1D737373FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFF9D9D9D0101010000001D1D1DFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D9D9D0101
+            01000000010101A2A2A2FFFFFFFFFFFFFFFFFFFFFFFFD5D5D5929292919191A9
+            A9A9EFEFEFFFFFFF9E9E9E0101010000000101019D9D9DFFFFFFFFFFFFFFFFFF
+            D4D4D43232320000000000000000000000000C0C0C6868680505050000000101
+            019D9D9DFFFFFFFFFFFFFFFFFFBABABA0707070D0D0D898989CACACAE0E0E0B2
+            B2B24747470000000000000505059E9E9EFFFFFFFFFFFFFFFFFFF0F0F01C1C1C
+            232323E1E1E1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF878787000000686868FFFF
+            FFFFFFFFFFFFFFFFFFFF7A7A7A010101C0C0C0FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFF4747470C0C0CEFEFEFFFFFFFFFFFFFFFFFFF3F3F3F2A2A2A
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB2B2B2000000A9A9
+            A9FFFFFFFFFFFFFFFFFF0F0F0F585858FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFE0E0E0000000919191FFFFFFFFFFFFFFFFFF262626424242
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCACACA0000009292
+            92FFFFFFFFFFFFFFFFFF5959590F0F0FF2F2F2FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFF888888000000D5D5D5FFFFFFFFFFFFFFFFFFBCBCBC010101
+            686868FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFDF0C0C0C323232FFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFF676767000000676767F2F2F2FFFFFFFFFFFFFF
+            FFFFBDBDBD1F1F1F070707D4D4D4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F5F5
+            6767670101010F0F0F4242425858582A2A2A0101011C1C1CBABABAFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBCBCBC5959592626260F0F0F3F
+            3F3F7A7A7AF0F0F0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          ExplicitLeft = 8
+          ExplicitTop = -8
+        end
+      end
+      object PriTEdit1: PriTEdit
+        Left = 112
+        Top = 695
+        Width = 389
+        Height = 24
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 31
+        MudarCor = clCream
+      end
+      object edt_condigo_condicao_pagamento: PriTEdit
+        Left = 8
+        Top = 695
+        Width = 80
+        Height = 24
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 4
+        NumbersOnly = True
+        ParentFont = False
+        TabOrder = 32
+        MudarCor = clCream
+      end
+      object ListView_condicao_pagamento: TListView
+        Left = 3
+        Top = 774
+        Width = 820
+        Height = 193
+        Columns = <
+          item
+            Caption = 'N'#186' Parcela'
+            Width = 100
+          end
+          item
+            Caption = 'Dias'
+          end
+          item
+            Caption = 'Porcentagem'
+            Width = 100
+          end
+          item
+            Caption = 'Desconto'
+            Width = 80
+          end
+          item
+            Caption = 'Juros'
+            Width = 80
+          end
+          item
+            Caption = 'Multa'
+            Width = 80
+          end
+          item
+            Caption = 'Forma de Pagamento'
+            Width = 325
+          end>
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ReadOnly = True
+        RowSelect = True
+        ParentFont = False
+        TabOrder = 33
+        TabStop = False
+        ViewStyle = vsReport
       end
     end
   end
