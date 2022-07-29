@@ -25,7 +25,6 @@ type
     { Private declarations }
     oPais : Paises;
     aCtrlPais : ctrlPaises;
-    NomePais : string;
   public
     { Public declarations }
     procedure conhecaObj ( pCtrl, pObj : TObject );  override;
@@ -67,10 +66,8 @@ begin
   Self.edt_sigla.Text:= oPais.getSigla;
   Self.edt_ddi.Text:= oPais.getDDI;
   Self.edt_moeda.Text:= oPais.getMoeda;
-  Self.edt_data_cadastro.Text:= DateToStr( oPais.getDataCad);
-  self.edt_data_ult_alt.Text:= DateToStr(oPais.getUltAlt);
-  NomePais := oPais.getPais;
-
+ Self.edt_data_cadastro.Text:= DateToStr( oPais.getDataCad);
+ self.edt_data_ult_alt.Text:= DateToStr(oPais.getUltAlt);
 end;
 
 procedure Tform_cadastro_paises.conhecaObj(pCtrl, pObj: TObject);
@@ -117,8 +114,6 @@ begin
 end;
 
 procedure Tform_cadastro_paises.salvar;
-var
-  RetornoOperacao : string;
 begin
   inherited;
   if validaFormulario then
@@ -128,58 +123,16 @@ begin
       oPais.setSigla( Self.edt_sigla.Text );
       oPais.setDDI( Self.edt_ddi.Text );
       oPais.setMoeda( Self.edt_moeda.Text );
-
-      if (oPais.getCodigo = 0) then
-        begin
-          oPais.setDataCad( Date );
-          oPais.setUltAlt( Date );
-        end
-      else
-        begin
-          oPais.setDataCad(StrToDate(Self.edt_data_cadastro.Text));
-          oPais.setUltAlt(Date);
-        end;
-
+      oPais.setDataCad( Date );
+      oPais.setUltAlt( Date );
       oPais.setCodUsu( StrToInt ( Self.edt_cod_usuario.Text ) );
 
       if Self.btn_botao_salvar.Caption = 'Salvar' then // INCLUIR-ALTERAR
-        begin
-          if (oPais.getCodigo = 0) then
-            begin
-              if (aCtrlPais.VerificaExiste(oPais.getPais)) then  //verifica se existe pais quando é incluir
-                begin
-                  ShowMessage('Já Existe um País ' + oPais.getPais + ' cadastrado!');
-                  Exit;
-                end;
-            end
-          else
-            begin
-              if not(NomePais = oPais.getPais) then   //verifica se mudou o nome na alteracao
-                if (aCtrlPais.VerificaExiste(oPais.getPais)) then //se mudou verifica se já existe pais com o nome
-                  begin
-                    ShowMessage('Já Existe um País ' + oPais.getPais + ' cadastrado!');
-                    Exit;
-                  end;
-            end;
-
-          RetornoOperacao := aCtrlPais.salvar( oPais.clone );
-        end
+         aCtrlPais.salvar( oPais.clone )
       else //EXCLUIR
-        begin
-          if aCtrlPais.ValidaExclusao(oPais.clone) then
-            RetornoOperacao := aCtrlPais.excluir( oPais.clone )
-          else
-            ShowMessage('O País está cadastrado em um estado, não pode ser excluído!');
-        end;
+         aCtrlPais.excluir( oPais.clone );
 
-      if not(RetornoOperacao = '') then
-        begin
-          ShowMessage(RetornoOperacao);
-          self.sair;
-        end
-      else
-        ShowMessage('Ocorreu um erro ao' + Self.btn_botao_salvar.Caption + '!');
-
+      self.sair;
   end;
 end;
 

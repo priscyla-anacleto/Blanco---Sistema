@@ -12,7 +12,7 @@ type Paises = class(Pai)
     pais  : string[50];
     sigla : string[3];
     DDI   : string[3];
-    moeda : string[3];
+    moeda : string[2];
   public
     constructor crieObj;
     constructor crieInit ( pCodigo : integer; pPais : string; pSigla : string; pDDI : string; pMoeda : string; pDataCad : TDateTime; pUltAlt : TDateTime; pCodUsu : integer );

@@ -18,9 +18,6 @@ type ctrlPaises = class( Ctrl )
     function salvar ( pObj : TObject ) : string;      override;
     function excluir ( pObj : TObject ) : string;     override;
     function carregar ( pObj : TObject ) : string;    override;
-
-    function VerificaExiste(aChave:string):Boolean; override;
-    function ValidaExclusao(pObj : TObject):Boolean; override;
 end;
 
 implementation
@@ -47,7 +44,7 @@ end;
 
 function ctrlPaises.excluir(pObj: TObject): string;
 begin
-  Result := aDaoPais.excluir(pObj);
+
 end;
 
 function ctrlPaises.getDS: TObject;
@@ -62,23 +59,13 @@ end;
 
 function ctrlPaises.salvar(pObj: TObject): string;
 begin
-  Result := aDaoPais.salvar(pObj);
+  aDaoPais.salvar(pObj);
 end;
 
 procedure ctrlPaises.setDM(pDM: TObject);
 begin
   inherited;
   aDaoPais.setDM( pDM );
-end;
-
-function ctrlPaises.ValidaExclusao(pObj: TObject): Boolean;
-begin
-  Result := aDaoPais.ValidaExclusao(pObj);
-end;
-
-function ctrlPaises.VerificaExiste(aChave: string): Boolean;
-begin
-  Result := aDaoPais.VerificaExiste(aChave);
 end;
 
 end.

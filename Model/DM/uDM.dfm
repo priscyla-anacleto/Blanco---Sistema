@@ -5,7 +5,7 @@ object DM: TDM
   object Conexao: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\Vaz\OneDrive\Documentos\Projetos\projetopricila\Blanco---Sistema\bd\BD-SISTEM' +
+        'Database=D:\Desenvolvimento\Projeto\Blanco---Sistema\bd\BD-SISTEM' +
         'A-BLANCO.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'

@@ -562,7 +562,7 @@ inherited form_cadastro_compras: Tform_cadastro_compras
         MudarCor = clCream
       end
       object edt_valor_total: PriTEdit
-        Left = 568
+        Left = 320
         Top = 264
         Width = 80
         Height = 24
